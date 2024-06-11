@@ -1,11 +1,11 @@
-import google.generativeai as palm
+import google.generativeai as genai
 import telebot
 
 # Your Telegram bot token
-TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN'
+TOKEN = 'TELEGRAM_TOKEN'
 
 # Configure the generative AI API key
-palm.configure(api_key="YOUR_GENERATIVE_AI_API_KEY")
+genai.configure(api_key="GEN_AI_API_KEY")
 
 # Create a Telegram bot instance
 bot = telebot.TeleBot(TOKEN)
@@ -29,37 +29,13 @@ def handle_search_product(message):
     try:
         bot.reply_to(message, f"Please wait a moment, {name}, before sending another message")
         
-        # Default parameters for the generative AI model
-        defaults = {
-            'model': 'models/chat-bison-001',
-            'temperature': 0.25,
-            'candidate_count': 1,
-            'top_k': 40,
-            'top_p': 0.95,
-        }
+        model = genai.GenerativeModel('gemini-1.5-flash')
+        chat = model.start_chat(history=[])
+
+        response = chat.send_message(msg)
+        print(response.text)
         
-        context = ""
-        examples = [
-            [
-                " ",
-            ]
-        ]
-        
-        examples[0].append(str(msg))
-        messages = []
-        messages.append("NEXT REQUEST")
-        
-        # Generate response using the generative AI model
-        response = palm.chat(
-            **defaults,
-            context=context,
-            examples=examples,
-            messages=messages
-        )
-        
-        print(response.messages)
-        print(response.last)
-        bot.reply_to(message, response.last)
+        bot.reply_to(message, response.text)
     
     except Exception as e:
         bot.reply_to(message, str(e))
