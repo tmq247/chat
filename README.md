@@ -2,7 +2,9 @@
 
 This repository contains a Telegram bot that utilizes the Generative AI API to respond to user messages with creative and contextually relevant content. The bot employs the `telebot` library for Telegram communication and the `google.generativeai (palm)`library (Bard Ai from Google)  for AI-powered responses.
 
-![Project Image Overview](https://github.com/zima-0201/Project-Images/blob/main/Python-BardAI-Telegram-ChatBot.jpg)
+## Video Preview
+
+[![Video Preview](https://github.com/zima-0201/Project-Images/blob/main/video%20preview/Python-BardAI-Telegram-ChatBot.jpg)](https://brand-car.s3.eu-north-1.amazonaws.com/Four+Seasons/Python-BardAI-Telegram-ChatBot.mp4)
 
 ## Getting Started
 
