@@ -2,10 +2,10 @@ import google.generativeai as genai
 import telebot
 
 # Your Telegram bot token
-TOKEN = 'TELEGRAM_TOKEN'
+TOKEN = '6543379161:AAFRJFLuItZt-Ds_CdLVUcQU5tT0d7f4Yk0'
 
 # Configure the generative AI API key
-genai.configure(api_key="GEN_AI_API_KEY")
+genai.configure(api_key="AIzaSyCCQesKko3O7P_J0SSbbE15Z3G6TIOc94s")
 
 # Create a Telegram bot instance
 bot = telebot.TeleBot(TOKEN)
